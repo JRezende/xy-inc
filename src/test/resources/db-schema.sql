@@ -1,6 +1,7 @@
 -- -----------------------------------------------------
 -- Schema xy_inc_db
 -- -----------------------------------------------------
+DROP SCHEMA `xy_inc_db`;
 CREATE SCHEMA IF NOT EXISTS `xy_inc_db` ;
 USE `xy_inc_db` ;
 
