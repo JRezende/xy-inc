@@ -31,7 +31,6 @@ public class PoiService {
       status = HttpStatus.INTERNAL_SERVER_ERROR;
       // log.error("Erro! Sera retornado um INTERNAL_SERVER_ERROR da requisicao {}. ERROR: ", e);
     }
-    // return pois;
     return new ResponseEntity<List<Poi>>(pois, status);
   }
 
@@ -73,8 +72,33 @@ public class PoiService {
       //log.error("Erro! Sera retornado um INTERNAL_SERVER_ERROR da requisicao {}. ERROR: ",poiFilter, e);
       status = HttpStatus.INTERNAL_SERVER_ERROR;
     }
-    // return pois;
     return new ResponseEntity<List<Poi>>(pois, status);
+  }
+  
+  public ResponseEntity<Poi> findPoiById(Long id) {
+    Poi poi = null;
+    HttpStatus status = null;
+    try {
+      poi = poiDao.findById(id);
+      status = HttpStatus.OK;
+    } catch (Exception e) {
+      status = HttpStatus.INTERNAL_SERVER_ERROR;
+    }
+    return new ResponseEntity<Poi>(poi, status);
+  }
+  
+  public ResponseEntity<String> deletePoi(Long id) {
+    String msg = null;
+    HttpStatus status = null;
+    try {
+      poiDao.remove(id);
+      status = HttpStatus.OK;
+      msg = "Poi removido com sucesso. ID poi: " + id;
+    } catch (Exception e) {
+      status = HttpStatus.INTERNAL_SERVER_ERROR;
+      msg = "Erro: INTERNAL_SERVER_ERROR da requisicao. ID poi: " + id;
+    }
+    return new ResponseEntity<String>(msg, status);
   }
 
   private Exception validatesAttributesPoi(Poi poi) {
@@ -107,7 +131,5 @@ public class PoiService {
     }
     return null;
   }
-
-
 
 }

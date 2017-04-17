@@ -115,7 +115,7 @@ Os serviços Rest disponíveis na aplicação são:
  ```
  - **Resposta**
   ```
-  Poi criado com sucesso. Poi [id=null, name=Novo Ponto, coordX=15, coordY=5]
+  Poi criado com sucesso. Poi [id=8, name=Novo Ponto, coordX=15, coordY=5]
   ```
 
 ### Serviço para buscar Pontos de Interesse de acordo com um ponto com coordenadas x e y e uma distância máxima
@@ -158,4 +158,27 @@ Os serviços Rest disponíveis na aplicação são:
     "coordY": 6
   }
 ]
+```
+
+### Serviço para um Poi por ID
+
+ - **HTTP GET**
+ - **http://localhost:8080/poi/{id}}**
+ - **Resposta**
+```json
+ {
+  "id": 8,
+  "name": "Novo Ponto",
+  "coordX": 15,
+  "coordY": 5
+}
+```
+
+### Serviço para um Poi por ID
+
+ - **HTTP DELETE**
+ - **http://localhost:8080/poi/{id}**
+ - **Resposta**
+```
+Poi removido com sucesso. ID poi: 8
 ```
