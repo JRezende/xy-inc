@@ -40,7 +40,7 @@ public class PoiController {
   
   @GetMapping(path = "/{id}")
   public ResponseEntity<Poi>  getById(@PathVariable Long id) {
-    return poiService.find(id);
+    return poiService.findPoiById(id);
   }
   
   @DeleteMapping(path = "/{id}")

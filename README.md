@@ -160,7 +160,7 @@ Os serviços Rest disponíveis na aplicação são:
 ]
 ```
 
-### Serviço para um Poi por ID
+### Serviço para buscar um Poi pelo ID
 
  - **HTTP GET**
  - **http://localhost:8080/poi/{id}}**
@@ -174,7 +174,7 @@ Os serviços Rest disponíveis na aplicação são:
 }
 ```
 
-### Serviço para um Poi por ID
+### Serviço para deletar um Poi pelo ID
 
  - **HTTP DELETE**
  - **http://localhost:8080/poi/{id}**
