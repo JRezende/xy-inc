@@ -23,8 +23,6 @@ public class PoiController {
   
   @GetMapping(path = "/pois")
   public ResponseEntity<List<Poi>> findAllPois() {
-    //List<Poi> listaPois = poiService.findAllPoi();
-    //return new ResponseEntity<List<Poi>>(listaPois, HttpStatus.OK);
     return poiService.findAllPoi();
   }
   
@@ -35,9 +33,6 @@ public class PoiController {
   
   @PostMapping(path = "/findPoiByDistanceAndPoint")
   public ResponseEntity<List<Poi>> findPoisByDistanceAndPoint(@RequestBody PoiFilter poiFilter) {
-    //List<Poi> listaPois = null;
-    //listaPois =  poiService.findPoisByDistanceAndPoint(poiFilter);
-    //return new ResponseEntity<List<Poi>>(listaPois, HttpStatus.OK);
     return poiService.findPoisByDistanceAndPoint(poiFilter);
   }
   

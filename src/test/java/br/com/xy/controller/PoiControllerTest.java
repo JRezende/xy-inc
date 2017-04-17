@@ -152,7 +152,6 @@ public class PoiControllerTest {
   
   @Test
   public void testGETfindPoiByDistanceAndPointWithDistanceNegative() throws Exception {
-    //List<Poi> listaPoisDistance = listResultPoiByDistanceAndPoint;
     PoiFilter poiFilter = TestConfiguration.initializeObjectPoiFilter();
     poiFilter.setDistance(-10L);
     this.mockMvc
@@ -160,14 +159,11 @@ public class PoiControllerTest {
             .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
             .content(gson.toJson(poiFilter)))
         .andExpect(status().isForbidden())
-        //.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-        //.andExpect(content().json(gson.toJson(null)))
     .andDo(print());
   }
   
   @Test
   public void testGETfindPoiByDistanceAndPointWithCoordinatesNegative() throws Exception {
-    //List<Poi> listaPoisDistance = listResultPoiByDistanceAndPoint;
     PoiFilter poiFilter = TestConfiguration.initializeObjectPoiFilter();
     poiFilter.setCoordX(-10L);
     this.mockMvc
@@ -175,8 +171,6 @@ public class PoiControllerTest {
             .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
             .content(gson.toJson(poiFilter)))
         .andExpect(status().isForbidden())
-        //.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-        //.andExpect(content().json(gson.toJson(null)))
     .andDo(print());
   }
 

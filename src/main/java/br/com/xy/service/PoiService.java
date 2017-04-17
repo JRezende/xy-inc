@@ -28,9 +28,10 @@ public class PoiService {
       pois = poiDao.findAll();
       status = HttpStatus.OK;
     } catch (Exception e) {
-      log.error("Erro! Sera retornado um INTERNAL_SERVER_ERROR da requisicao {}. ERROR: ", e);
+      status = HttpStatus.INTERNAL_SERVER_ERROR;
+      // log.error("Erro! Sera retornado um INTERNAL_SERVER_ERROR da requisicao {}. ERROR: ", e);
     }
-    //return pois;
+    // return pois;
     return new ResponseEntity<List<Poi>>(pois, status);
   }
 
@@ -46,15 +47,14 @@ public class PoiService {
       poi.setId(idPoi);
       msg = "Poi criado com sucesso. " + poi;
     } catch (IllegalArgumentException e) {
-      log.error("Erro! Nao foi possivel criar o poi: {}", poi, e);
       status = HttpStatus.FORBIDDEN;
       msg = "Erro: " + e + ". " + poi.toString();
+      // log.error("Erro! Nao foi possivel criar o poi: {}", poi, e);
     } catch (Exception e) {
       status = HttpStatus.INTERNAL_SERVER_ERROR;
       msg = "Erro: INTERNAL_SERVER_ERROR da requisicao. " + poi.toString();
-      log.error("Erro! Sera retornado um INTERNAL_SERVER_ERROR da requisicao {}. ERROR: ", poi, e);
+      // log.error("Erro! Sera retornado um INTERNAL_SERVER_ERROR da requisicao {}. ERROR: ", poi,e);
     }
-    // return new ResponseEntity<String>(status);
     return new ResponseEntity<String>(msg, status);
   }
 
@@ -66,17 +66,14 @@ public class PoiService {
       pois = poiDao.findPoiByDistanceAndPoint(poiFilter.getCoordX(), poiFilter.getCoordY(),
           poiFilter.getDistance());
       status = HttpStatus.OK;
-    } 
-    catch (IllegalArgumentException e) {
-      log.error("Erro! Nao foi possivel filtrar os poi: {}", poiFilter, e);
+    } catch (IllegalArgumentException e) {
+      //log.error("Erro! Nao foi possivel filtrar os poi: {}", poiFilter, e);
       status = HttpStatus.FORBIDDEN;
-    }
-    catch (Exception e) {
-      log.error("Erro! Sera retornado um INTERNAL_SERVER_ERROR da requisicao {}. ERROR: ",
-          poiFilter, e);
+    } catch (Exception e) {
+      //log.error("Erro! Sera retornado um INTERNAL_SERVER_ERROR da requisicao {}. ERROR: ",poiFilter, e);
       status = HttpStatus.INTERNAL_SERVER_ERROR;
     }
-    //return pois;
+    // return pois;
     return new ResponseEntity<List<Poi>>(pois, status);
   }
 
@@ -90,7 +87,7 @@ public class PoiService {
     }
     return null;
   }
-  
+
   private Exception validatesDuplicatePoi(Poi poi) {
     if (poiDao.findByNameAndCoordinates(poi) != null) {
       throw new IllegalArgumentException("Já existe um Poi com mesmo nome e coordenadas iguais");
@@ -110,7 +107,7 @@ public class PoiService {
     }
     return null;
   }
-  
-  
+
+
 
 }
