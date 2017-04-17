@@ -41,8 +41,9 @@ public class PoiService {
     try {
       validatesAttributesPoi(poi);
       validatesDuplicatePoi(poi);
-      poiDao.save(poi);
+      Long idPoi = poiDao.saveAndReturnId(poi);
       status = HttpStatus.CREATED;
+      poi.setId(idPoi);
       msg = "Poi criado com sucesso. " + poi;
     } catch (IllegalArgumentException e) {
       log.error("Erro! Nao foi possivel criar o poi: {}", poi, e);
