@@ -3,11 +3,11 @@
 ## Serviço para cadastro e busca de pontos de interesses.
 ## 1. Ambiente
 
-  - JDK 8 -
+  - JDK 8
 
   - Maven 3
 
-  - MySQL - servidor de banco de dados;
+  - MySQL
 
 
 ## 2. Configuração
