@@ -16,7 +16,14 @@ CREATE TABLE IF NOT EXISTS `xy_inc_db`.`POI` (
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
-
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+INSERT INTO `xy_inc_db`.`POI` (`NAME`,`COORD_X`,`COORD_Y`) VALUES ("Lanchonete",27,12);
+INSERT INTO `xy_inc_db`.`POI` (`NAME`,`COORD_X`,`COORD_Y`) VALUES ("Posto",31,18);
+INSERT INTO `xy_inc_db`.`POI` (`NAME`,`COORD_X`,`COORD_Y`) VALUES ("Joalheria",15,12);
+INSERT INTO `xy_inc_db`.`POI` (`NAME`,`COORD_X`,`COORD_Y`) VALUES ("Floricultura",19,21);
+INSERT INTO `xy_inc_db`.`POI` (`NAME`,`COORD_X`,`COORD_Y`) VALUES ("Pub",12,8);
+INSERT INTO `xy_inc_db`.`POI` (`NAME`,`COORD_X`,`COORD_Y`) VALUES ("Supermercado",23,6);
+INSERT INTO `xy_inc_db`.`POI` (`NAME`,`COORD_X`,`COORD_Y`) VALUES ("Churrascaria",28,2);
